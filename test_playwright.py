@@ -17,8 +17,10 @@ class TestSearch(unittest.TestCase):
         self.al = Alumni(page)
 
     def test_complete_all_todos(self):
-        self.al.do("type 'buy some milk' into the input field, then press 'Enter'")
-        self.al.do("type 'buy some bread' into the input field, then press 'Enter'")
-        self.al.do("mark all tasks complete")
-        self.al.check("buy some milk' title font style is strikethrough", vision=True)
-        self.al.check("buy some bread' title font style is strikethrough", vision=True)
+        self.al.do("add 'buy some milk' to the todo list")
+        self.al.do("add 'buy some bread' to the todo list")
+        self.al.do("mark all tasks complete using 'Toggle All' button")
+        self.al.check("task 'buy some milk' is completed")
+        self.al.check("task 'buy some bread' is completed")
+        
+        assert self.al.get("number of completed todos in the list") == 2
