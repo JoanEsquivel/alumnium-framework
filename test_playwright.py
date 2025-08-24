@@ -9,7 +9,7 @@ load_dotenv()
 # Run with:
 # python -m unittest test_playwright.py
 
-class TestSearch(unittest.TestCase):
+class TestTodoMVC(unittest.TestCase):
 
     def setUp(self):
         page = sync_playwright().start().chromium.launch(headless=False).new_page()
